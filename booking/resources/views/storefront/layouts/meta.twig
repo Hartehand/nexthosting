@@ -1,0 +1,20 @@
+{% hw_extends 'storefront::layouts/meta.twig' %}
+
+{% block layouts_head_theme_css %}
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/vendor/tiny-slider/tiny-slider.css') }}?v={{ hwCacheId }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/vendor/glightbox/css/glightbox.css') }}?v={{ hwCacheId }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/vendor/flatpickr/css/flatpickr.min.css') }}?v={{ hwCacheId }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/vendor/choices/css/choices.min.css') }}?v={{ hwCacheId }}">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/css/style.css') }}?v={{ hwCacheId }}">
+
+	<!-- Hostware CSS -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('themes/hw/booking/css/hw.css') }}?v={{ hwCacheId }}">
+{% endblock %}
