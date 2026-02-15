@@ -1,0 +1,897 @@
+<!-- TEMPLATE: GAMESERVER CATEGORY -->
+<style>
+  .nh-gs-cat {
+    --nh-primary: #4f46e5;
+    --nh-primary-2: #5a54ff;
+    --nh-accent: #60a5fa;
+    --nh-dark: #0f172a;
+    --nh-muted: #475569;
+    --nh-surface: #ffffff;
+    --nh-radius: 22px;
+    --nh-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    --nh-shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
+  }
+  .nh-gs-cat .nh-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+  }
+  .nh-gs-cat .nh-hero {
+    border-radius: 28px;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.12), rgba(90, 84, 255, 0.2));
+    box-shadow: var(--nh-shadow);
+  }
+  .nh-gs-cat .nh-breadcrumb {
+    font-size: 0.95rem;
+    color: var(--nh-muted);
+  }
+  .nh-gs-cat .nh-hero h1 {
+    font-weight: 800;
+    color: var(--nh-dark);
+    letter-spacing: -0.02em;
+  }
+  .nh-gs-cat .nh-subline {
+    color: var(--nh-muted);
+    font-size: 1.05rem;
+  }
+  .nh-gs-cat .nh-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #312e81;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .nh-gs-cat .nh-search {
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    padding: 12px 16px;
+    box-shadow: var(--nh-shadow-soft);
+  }
+  .nh-gs-cat .nh-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    padding: 8px 16px;
+    border: 1px solid #e2e8f0;
+    font-weight: 600;
+    color: var(--nh-muted);
+    background: #fff;
+    transition: all 0.2s ease;
+  }
+  .nh-gs-cat .nh-filter:hover,
+  .nh-gs-cat .nh-filter.is-active {
+    color: #fff;
+    background: linear-gradient(120deg, var(--nh-primary), var(--nh-primary-2));
+    border-color: transparent;
+    transform: translateY(-1px);
+  }
+  .nh-gs-cat .nh-card {
+    border-radius: var(--nh-radius);
+    background: var(--nh-surface);
+    box-shadow: var(--nh-shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #eef2ff;
+    height: 100%;
+  }
+  .nh-gs-cat .nh-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--nh-shadow);
+  }
+  .nh-gs-cat .nh-card .nh-card-title {
+    font-weight: 700;
+    color: var(--nh-dark);
+  }
+  .nh-gs-cat .nh-card .nh-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .nh-gs-cat .nh-card .nh-info {
+    font-size: 0.9rem;
+    color: var(--nh-muted);
+  }
+  .nh-gs-cat .nh-btn-primary {
+    background: linear-gradient(120deg, var(--nh-primary), var(--nh-primary-2));
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 10px 16px;
+  }
+  .nh-gs-cat .nh-btn-primary:hover {
+    color: #fff;
+    opacity: 0.92;
+  }
+  .nh-gs-cat .nh-section-title {
+    font-weight: 700;
+    color: var(--nh-dark);
+  }
+  .nh-gs-cat .nh-step {
+    border-radius: 18px;
+    background: #f8fafc;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+  }
+  .nh-gs-cat .nh-benefit {
+    border-radius: 18px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--nh-shadow-soft);
+    height: 100%;
+  }
+  .nh-gs-cat .nh-faq {
+    border-radius: 18px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }
+  .nh-gs-cat .nh-cta {
+    border-radius: 24px;
+    padding: 36px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.85), rgba(96, 165, 250, 0.85));
+    color: #fff;
+    box-shadow: var(--nh-shadow);
+  }
+</style>
+<section class="nh-gs-cat">
+  <div class="nh-wrap">
+    <div class="nh-hero mb-5">
+      <div class="nh-breadcrumb mb-3">Produkte / Gameserver</div>
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-5 mb-3">Gameserver</h1>
+          <p class="nh-subline mb-4">Ultraschnelle Verbindungen mit niedriger Latenz, DDoS-Schutz und sofortigem Start. Perfekt für Mods, Workshops und lebendige Communities – leistungsstark, skalierbar und jederzeit startklar.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="nh-chip"><i class="fa-solid fa-shield-halved"></i>DDoS-Schutz inklusive</span>
+            <span class="nh-chip"><i class="fa-solid fa-hard-drive"></i>NVMe Storage</span>
+            <span class="nh-chip"><i class="fa-solid fa-bolt"></i>Sofort einsatzbereit</span>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 rounded-4 bg-white shadow-sm">
+            <h5 class="mb-2 fw-semibold">Finde deinen Server</h5>
+            <p class="text-muted mb-3">Wähle dein Lieblingsspiel und starte direkt durch.</p>
+            <div class="input-group nh-search">
+              <span class="input-group-text bg-white border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input type="text" class="form-control border-0" placeholder="Spiel suchen…" />
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <button class="nh-filter is-active" type="button">Beliebt</button>
+              <button class="nh-filter" type="button">Survival</button>
+              <button class="nh-filter" type="button">Shooter</button>
+              <button class="nh-filter" type="button">Sandbox</button>
+              <button class="nh-filter" type="button">Roleplay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-primary"></i>
+            <h4 class="nh-card-title mb-0">Garry's Mod</h4>
+          </div>
+          <p class="text-muted">Modding-freundlich mit starker Singlecore-Performance für TTT, DarkRP & Co.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Modding</span>
+            <span class="nh-badge">Performance</span>
+            <span class="nh-badge">Beliebt</span>
+          </div>
+          <div class="nh-info mb-3">ab Basic bis Community</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/garrys-mod" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/garrys-mod" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-city text-primary"></i>
+            <h4 class="nh-card-title mb-0">FiveM</h4>
+          </div>
+          <p class="text-muted">Stabil für RP-Communities mit moderner Infrastruktur und schnellen Updates.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Roleplay</span>
+            <span class="nh-badge">Skalierbar</span>
+            <span class="nh-badge">Community</span>
+          </div>
+          <div class="nh-info mb-3">für RP bis Großstadt-Server</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/fivem" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/fivem" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-crosshairs text-primary"></i>
+            <h4 class="nh-card-title mb-0">CS2</h4>
+          </div>
+          <p class="text-muted">Wettkampfstarke Tickrate mit ultraschneller Latenz für Clans & Ligen.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Shooter</span>
+            <span class="nh-badge">Low Ping</span>
+            <span class="nh-badge">Turnierbereit</span>
+          </div>
+          <div class="nh-info mb-3">kompetitiv optimiert</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/cs2" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/cs2" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-tree text-primary"></i>
+            <h4 class="nh-card-title mb-0">Valheim</h4>
+          </div>
+          <p class="text-muted">Koop-Abenteuer mit schnellen Welten und stabilen Saves für deine Gruppe.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Survival</span>
+            <span class="nh-badge">Coop</span>
+            <span class="nh-badge">NVMe</span>
+          </div>
+          <div class="nh-info mb-3">für kleine bis mittlere Gruppen</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/valheim" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/valheim" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-cube text-primary"></i>
+            <h4 class="nh-card-title mb-0">Minecraft</h4>
+          </div>
+          <p class="text-muted">Schnelles Laden großer Welten mit Plugin-Performance und Auto-Backups.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Sandbox</span>
+            <span class="nh-badge">Plugins</span>
+            <span class="nh-badge">Beliebt</span>
+          </div>
+          <div class="nh-info mb-3">ideal für Survival & Creative</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/minecraft" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/minecraft" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-fire text-primary"></i>
+            <h4 class="nh-card-title mb-0">Rust</h4>
+          </div>
+          <p class="text-muted">Massive Maps und flüssiges PVP dank starker CPU-Performance.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Survival</span>
+            <span class="nh-badge">PVP</span>
+            <span class="nh-badge">High Slots</span>
+          </div>
+          <div class="nh-info mb-3">für ambitionierte Clans</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/rust" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/rust" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-dragon text-primary"></i>
+            <h4 class="nh-card-title mb-0">ARK: Survival Evolved</h4>
+          </div>
+          <p class="text-muted">Riesige Welten mit schnellen Backups und stabiler Tickrate.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Survival</span>
+            <span class="nh-badge">Tribes</span>
+            <span class="nh-badge">Scale</span>
+          </div>
+          <div class="nh-info mb-3">für Abenteuer mit Dinos</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/ark" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/ark" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-star text-primary"></i>
+            <h4 class="nh-card-title mb-0">Hytale</h4>
+          </div>
+          <p class="text-muted">Bereit für kommende Abenteuer mit moderner Hardware und Mods.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Sandbox</span>
+            <span class="nh-badge">Future</span>
+            <span class="nh-badge">Community</span>
+          </div>
+          <div class="nh-info mb-3">flexibel skalierbar</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/hytale" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/hytale" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-helmet-un text-primary"></i>
+            <h4 class="nh-card-title mb-0">Arma 3</h4>
+          </div>
+          <p class="text-muted">Groß angelegte MilSim-Operationen mit stabilen FPS.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Taktik</span>
+            <span class="nh-badge">MilSim</span>
+            <span class="nh-badge">Mods</span>
+          </div>
+          <div class="nh-info mb-3">für große Squads</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/arma-3" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/arma-3" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="nh-card p-4">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <i class="fa-solid fa-skull text-primary"></i>
+            <h4 class="nh-card-title mb-0">DayZ</h4>
+          </div>
+          <p class="text-muted">Zuverlässige Server-Performance für intensive Survival-Sessions.</p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="nh-badge">Survival</span>
+            <span class="nh-badge">Hardcore</span>
+            <span class="nh-badge">Low Lag</span>
+          </div>
+          <div class="nh-info mb-3">für Hardcore-Communities</div>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/gameserver/dayz" class="nh-btn-primary btn">Konfigurieren</a>
+            <a href="/gameserver/dayz" class="link-primary text-decoration-none fw-semibold">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="nh-section-title mb-4">So wählst du die richtige Serverstärke</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="nh-step h-100">
+            <h5 class="fw-semibold">1. Spielstil definieren</h5>
+            <p class="text-muted mb-0">Überlege dir, ob du Casual, Competitive oder RP spielst – das bestimmt die Ressourcen.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-step h-100">
+            <h5 class="fw-semibold">2. Slots & Mods prüfen</h5>
+            <p class="text-muted mb-0">Mehr Spieler und Addons benötigen mehr RAM und starke Singlecore-Leistung.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-step h-100">
+            <h5 class="fw-semibold">3. Zukunft mitdenken</h5>
+            <p class="text-muted mb-0">Plane Puffer für Wachstum ein – Upgrades sind jederzeit möglich.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="nh-section-title mb-4">Was du bekommst</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-microchip text-primary"></i>
+            <h6 class="mt-2 fw-semibold">High-End CPU</h6>
+            <p class="text-muted mb-0">Starke Singlecore-Leistung für tickrate-intensive Spiele.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-gauge-high text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Low Latency</h6>
+            <p class="text-muted mb-0">Optimierte Netzwerke für blitzschnelle Verbindungen.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-shield-halved text-primary"></i>
+            <h6 class="mt-2 fw-semibold">DDoS Schutz</h6>
+            <p class="text-muted mb-0">Mehrstufige Filter sorgen für stabile Server.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-hard-drive text-primary"></i>
+            <h6 class="mt-2 fw-semibold">NVMe Storage</h6>
+            <p class="text-muted mb-0">Schnelle Ladezeiten und sichere Speicherplätze.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-gear text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Einfache Verwaltung</h6>
+            <p class="text-muted mb-0">Modernes Panel mit schnellen Installern.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-benefit">
+            <i class="fa-solid fa-headset text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Support</h6>
+            <p class="text-muted mb-0">Echte Experten helfen bei Setup und Optimierung.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="nh-section-title mb-4">FAQ kurz</h2>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="nh-faq">
+            <h6 class="fw-semibold">Wie schnell ist der Server startklar?</h6>
+            <p class="text-muted mb-0">In der Regel innerhalb weniger Minuten – sofort nach dem Bestellabschluss.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-faq">
+            <h6 class="fw-semibold">Kann ich später upgraden?</h6>
+            <p class="text-muted mb-0">Ja, du kannst jederzeit auf eine höhere Stufe wechseln.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-faq">
+            <h6 class="fw-semibold">Ist Modding möglich?</h6>
+            <p class="text-muted mb-0">Ja, du hast vollen Zugriff auf Mods, Plugins und Konfigurationen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 nh-cta">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+          <h3 class="fw-bold mb-2">Nicht sicher? Wir empfehlen dir das passende Paket.</h3>
+          <p class="mb-0">Unsere Experten finden die optimale Serverstärke für deine Community.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="/support" class="btn btn-light fw-semibold px-4 py-2">Jetzt beraten lassen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATE: GAME DETAIL (GARRY'S MOD EXAMPLE) -->
+<style>
+  .nh-gs-game {
+    --nh-primary: #4f46e5;
+    --nh-primary-2: #5a54ff;
+    --nh-accent: #60a5fa;
+    --nh-dark: #0f172a;
+    --nh-muted: #475569;
+    --nh-surface: #ffffff;
+    --nh-radius: 22px;
+    --nh-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+    --nh-shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.08);
+  }
+  .nh-gs-game .nh-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 48px 20px 64px;
+  }
+  .nh-gs-game .nh-hero {
+    border-radius: 28px;
+    padding: 48px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(96, 165, 250, 0.22));
+    box-shadow: var(--nh-shadow);
+  }
+  .nh-gs-game .nh-breadcrumb {
+    font-size: 0.95rem;
+    color: var(--nh-muted);
+  }
+  .nh-gs-game .nh-hero h1 {
+    font-weight: 800;
+    color: var(--nh-dark);
+  }
+  .nh-gs-game .nh-subline {
+    color: var(--nh-muted);
+    font-size: 1.05rem;
+  }
+  .nh-gs-game .nh-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #312e81;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .nh-gs-game .nh-pricing-card {
+    border-radius: var(--nh-radius);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--nh-shadow-soft);
+    padding: 28px;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .nh-gs-game .nh-pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--nh-shadow);
+  }
+  .nh-gs-game .nh-pricing-card.is-highlight {
+    border: 2px solid var(--nh-primary);
+    box-shadow: var(--nh-shadow);
+  }
+  .nh-gs-game .nh-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #fee2e2;
+    color: #991b1b;
+  }
+  .nh-gs-game .nh-btn-primary {
+    background: linear-gradient(120deg, var(--nh-primary), var(--nh-primary-2));
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 12px 18px;
+  }
+  .nh-gs-game .nh-btn-primary:hover {
+    color: #fff;
+    opacity: 0.92;
+  }
+  .nh-gs-game .nh-toggle {
+    background: #e2e8f0;
+    border-radius: 999px;
+    padding: 4px;
+    width: 54px;
+    height: 28px;
+    position: relative;
+  }
+  .nh-gs-game .nh-toggle span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(15, 23, 42, 0.2);
+    transform: translateX(2px);
+  }
+  .nh-gs-game .nh-section-title {
+    font-weight: 700;
+    color: var(--nh-dark);
+  }
+  .nh-gs-game .nh-managed {
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+  }
+  .nh-gs-game .nh-managed-card {
+    border-radius: 18px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--nh-shadow-soft);
+    height: 100%;
+  }
+  .nh-gs-game .nh-tech {
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    background: #ffffff;
+    box-shadow: var(--nh-shadow-soft);
+  }
+  .nh-gs-game .nh-cta {
+    border-radius: 24px;
+    padding: 36px;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.85), rgba(96, 165, 250, 0.85));
+    color: #fff;
+    box-shadow: var(--nh-shadow);
+  }
+</style>
+<section class="nh-gs-game">
+  <div class="nh-wrap">
+    <div class="nh-hero mb-5">
+      <div class="nh-breadcrumb mb-3">Gameserver / Garry's Mod</div>
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-5 mb-3">Garry's Mod Server</h1>
+          <p class="nh-subline mb-4">Perfekt für DarkRP, TTT und kreative Sandbox-Projekte. Starke Singlecore-Leistung sorgt für schnelle Tickrate, stabile Performance und zuverlässige Workshop-Unterstützung.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="nh-chip"><i class="fa-solid fa-box-open"></i>Workshop ready</span>
+            <span class="nh-chip"><i class="fa-solid fa-bolt"></i>Low Latency</span>
+            <span class="nh-chip"><i class="fa-solid fa-shield-halved"></i>DDoS Schutz</span>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 rounded-4 bg-white shadow-sm">
+            <h5 class="mb-2 fw-semibold">Garry's Mod Hosting</h5>
+            <p class="text-muted mb-0">Wähle die passende Stärke für dein Team und starte sofort.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="nh-gs-packages" class="row g-4">
+      <div class="col-lg-4">
+        <div class="nh-pricing-card">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="fw-bold mb-0">Basic</h3>
+          </div>
+          <p class="text-muted">Ideal für 10–20 Slots, kleine RP-Runden und leichte Addons.</p>
+          <h5 class="fw-semibold">Empfohlen für:</h5>
+          <ul class="text-muted">
+            <li>DarkRP Small</li>
+            <li>TTT Lite</li>
+            <li>Basissammlung an Addons</li>
+          </ul>
+          <div class="mb-3">
+            <span class="fw-semibold">Performance-Fokus:</span>
+            <span class="text-muted">Singlecore Strong</span>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-microchip text-primary"></i><span>CPU Leistung (Singlecore)</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-memory text-primary"></i><span>RAM für Basis-Addons</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-hard-drive text-primary"></i><span>NVMe Speicher</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-primary"></i><span>Backup optional</span></div>
+          </div>
+          <div class="mb-3">
+            <div class="h4 mb-1">{{ price_basic }}</div>
+            <div class="text-muted">Managed Service: +20,00 €</div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="text-muted">Managed Service (optional)</span>
+            <div class="nh-toggle" aria-hidden="true"><span></span></div>
+          </div>
+          <a href="{{ buy_link_basic }}" class="nh-btn-primary btn w-100">Jetzt bestellen</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="nh-pricing-card is-highlight">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="fw-bold mb-0">Premium</h3>
+            <span class="nh-badge">Beliebt</span>
+          </div>
+          <p class="text-muted">Für RP-Communities mit vielen Addons, stabilen Tickrates und Wachstum.</p>
+          <h5 class="fw-semibold">Empfohlen für:</h5>
+          <ul class="text-muted">
+            <li>DarkRP Medium</li>
+            <li>Addon-Sammlungen</li>
+            <li>20–40 Slots</li>
+          </ul>
+          <div class="mb-3">
+            <span class="fw-semibold">Performance-Fokus:</span>
+            <span class="text-muted">Singlecore Max</span>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-microchip text-primary"></i><span>Boosted CPU Leistung</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-memory text-primary"></i><span>RAM für große Addons</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-hard-drive text-primary"></i><span>NVMe Speicher</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-primary"></i><span>Backup optional</span></div>
+          </div>
+          <div class="mb-3">
+            <div class="h4 mb-1">{{ price_premium }}</div>
+            <div class="text-muted">Managed Service: +20,00 €</div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="text-muted">Managed Service (optional)</span>
+            <div class="nh-toggle" aria-hidden="true"><span></span></div>
+          </div>
+          <a href="{{ buy_link_premium }}" class="nh-btn-primary btn w-100">Jetzt bestellen</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="nh-pricing-card">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h3 class="fw-bold mb-0">Community</h3>
+            <span class="nh-badge">Max</span>
+          </div>
+          <p class="text-muted">Für große Netzwerke mit vielen Slots, Addons und maximaler Stabilität.</p>
+          <h5 class="fw-semibold">Empfohlen für:</h5>
+          <ul class="text-muted">
+            <li>DarkRP Large</li>
+            <li>TTT Events</li>
+            <li>50+ Slots</li>
+          </ul>
+          <div class="mb-3">
+            <span class="fw-semibold">Performance-Fokus:</span>
+            <span class="text-muted">Singlecore Extreme</span>
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-microchip text-primary"></i><span>Max CPU Leistung</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-memory text-primary"></i><span>RAM für massive Addons</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-hard-drive text-primary"></i><span>NVMe Speicher</span></div>
+            <div class="d-flex align-items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-primary"></i><span>Backup optional</span></div>
+          </div>
+          <div class="mb-3">
+            <div class="h4 mb-1">{{ price_community }}</div>
+            <div class="text-muted">Managed Service: +20,00 €</div>
+          </div>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <span class="text-muted">Managed Service (optional)</span>
+            <div class="nh-toggle" aria-hidden="true"><span></span></div>
+          </div>
+          <a href="{{ buy_link_community }}" class="nh-btn-primary btn w-100">Jetzt bestellen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 nh-managed">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+          <h2 class="nh-section-title mb-1">Was ist im Managed Service?</h2>
+          <p class="text-muted mb-0">Wir übernehmen die Pflege – du spielst. Fixer Aufpreis: <strong>+20,00 € / Monat</strong></p>
+        </div>
+        <div class="fs-5 fw-semibold text-primary">+20,00 € / Monat</div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-wand-magic-sparkles text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Plugin- & Mod-Installation</h6>
+            <p class="text-muted mb-0">Wir installieren und konfigurieren deine Addons.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-rotate text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Update-Management</h6>
+            <p class="text-muted mb-0">Immer aktuelle Versionen ohne Ausfallzeiten.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-gauge-high text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Performance-Optimierung</h6>
+            <p class="text-muted mb-0">Feintuning für Tickrate, RAM und CPU.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-cloud-arrow-up text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Backup & Restore</h6>
+            <p class="text-muted mb-0">Sichere Backups und schnelle Wiederherstellung.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-shield-halved text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Security Hardening</h6>
+            <p class="text-muted mb-0">Schutz vor Exploits & sichere Einstellungen.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="nh-managed-card">
+            <i class="fa-solid fa-headset text-primary"></i>
+            <h6 class="mt-2 fw-semibold">Priorisierter Support</h6>
+            <p class="text-muted mb-0">Direkter Draht zu unseren GMod-Spezialisten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-5">
+      <div class="col-lg-6">
+        <div class="nh-tech h-100">
+          <h3 class="nh-section-title mb-3">Technische Details</h3>
+          <ul class="text-muted mb-0">
+            <li>Serverstandorte: Frankfurt, Düsseldorf, Wien</li>
+            <li>NVMe Storage & moderne CPU-Cluster</li>
+            <li>Mehrstufiger DDoS-Schutz</li>
+            <li>Game Panel mit Fast Installern</li>
+            <li>FTP & SFTP Zugriff</li>
+            <li>Automatische Backups verfügbar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="nh-tech h-100">
+          <h3 class="nh-section-title mb-3">Tipps für GMod</h3>
+          <ul class="text-muted mb-0">
+            <li>Nutze Workshop Collections für schnelle Mod-Deployments.</li>
+            <li>Aktiviere FastDL für kürzere Ladezeiten.</li>
+            <li>Plane Addons nach RAM-Verbrauch und Tickrate.</li>
+            <li>Teste neue Scripts zuerst auf einem Staging-Server.</li>
+            <li>Setze regelmäßige Backups bei großen Communities.</li>
+            <li>Nutze Performance-Monitoring im Panel.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="nh-section-title mb-3">FAQ</h2>
+      <div class="accordion" id="nh-gs-faq">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-one">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-one">Wie installiere ich Mods?</button>
+          </h2>
+          <div id="faq-collapse-one" class="accordion-collapse collapse show" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Mods kannst du direkt über das Panel oder via Workshop Collections einspielen.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-two">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-two">Unterstützt ihr Workshop Collections?</button>
+          </h2>
+          <div id="faq-collapse-two" class="accordion-collapse collapse" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Ja, Workshop Collections sind voll unterstützt und lassen sich schnell deployen.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-three">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-three">Kann ich upgraden?</button>
+          </h2>
+          <div id="faq-collapse-three" class="accordion-collapse collapse" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Upgrades sind jederzeit möglich, meist ohne Downtime.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-four">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-four">Wie funktionieren Backups?</button>
+          </h2>
+          <div id="faq-collapse-four" class="accordion-collapse collapse" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Backups kannst du im Panel planen und bei Bedarf schnell wiederherstellen.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-five">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-five">Was ist managed vs unmanaged?</button>
+          </h2>
+          <div id="faq-collapse-five" class="accordion-collapse collapse" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Managed bedeutet, dass wir Updates, Optimierungen und Betreuung übernehmen. Unmanaged bleibt komplett in deiner Hand.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq-six">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-six">Kündigung & Vertragslaufzeit?</button>
+          </h2>
+          <div id="faq-collapse-six" class="accordion-collapse collapse" data-bs-parent="#nh-gs-faq">
+            <div class="accordion-body">Monatlich kündbar oder mit Laufzeit – je nach gewähltem Tarif im Checkout.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 nh-cta">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-8">
+          <h3 class="fw-bold mb-2">Bereit für deinen Garry's Mod Server?</h3>
+          <p class="mb-0">Wähle jetzt deine Serverstärke und starte dein nächstes Projekt.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="#nh-gs-packages" class="btn btn-light fw-semibold px-4 py-2">Zum passenden Paket</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
